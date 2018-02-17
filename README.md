@@ -4,7 +4,15 @@ This is a draft of a research project aiming at designing theoretical and
 concrete tools to anonymize Linked Open Data graphs, notably RDF triple stores.
 The article describing the foundations behind this work and the goal of this
 implementation was [submitted to the ESWC2018 conference](https://2018.eswc-conferences.org/paper_12/),
- its acceptation is pending.
+its acceptation is pending.
+
+This program currently works by using a previously generated query workload and
+picking a fixed number random queries in this workload to affect them in either
+a privacy policy or an utility policy. Privacy queries must return no results in
+an "anonymized graph", while utility queries must return the same results as on
+the original graph. The code then computes possible sequences of operations to
+perform on the graph to anonymize it based on this set of contraints. If such
+sequences are found, an output is created with the supposedly anonymized graph.
 
 ## Setup
 
@@ -13,8 +21,9 @@ execute the code yourself on our example graph schema.
 
 ### Prerequisites
 
-This project uses Python and should work on any version of Python 3 and any 
-version of Python starting from Python 2.7. You must install the [rdflib library](https://github.com/RDFLib/rdflib)
+This project uses Python and should work on any version of Python 3 and any
+version of Python starting from Python 2.7. You must install the [rdflib](https://github.com/RDFLib/rdflib)
+and[unification](https://pypi.python.org/pypi/unification/0.2.2) Python libraries
 to run this program.
 
 The query workload is created using [gMark](https://github.com/graphMark/gmark),
@@ -64,8 +73,21 @@ python main.py 3 3 -hu
 python main.py 3 3 -hp
 ```
 
-The first creates general stats about compatibility (cf. Figures 2a, 2b and 2c in the article),
-the second data when utility size is fixed (Fig. 1a), the third when privacy size is fixed (Fig. 1b).
+The first creates general stats about compatibility with 7000 executions (cf. 
+Figures 2a, 2b and 2c in the article), the second created data when utility size
+is fixed, in 1400 executions (200 executions for 7 different privacy sizes, cf. Fig. 1a),
+the third when privacy size is fixed (200 executions for 7 different utility sizes, cf. Fig. 1b).
+ 
+You can also run each of these command separately using the previously mentioned flags,
+as follows:
+
+```bash
+python main.py P U [-s|-hu|-hp]
+```
+
+With P being the cardinalty of the privacy policy (the number of queries to be
+picked from the workload and affected to this query), and U the cardinality of
+the utility policy.
 
 ### Plot statisics
 
