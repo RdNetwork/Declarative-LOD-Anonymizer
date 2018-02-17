@@ -253,6 +253,8 @@ def main():
                 stats.append((measure, 0, True, p_size, u_size))
 
     if STAT:
+        if not os.path.exists('exp'):
+            os.makedirs('exp')
         with open('exp/stats_'+str(p_pol_size)+'_'+str(u_pol_size)+'.csv', 'wb') as f:
             wr = csv.writer(f, quoting=csv.QUOTE_NONE, delimiter=',', escapechar=' ')
             wr.writerow(["Overlap", "Length", "Incompatibility","PrivacySize","UtilitySize"])
@@ -260,6 +262,8 @@ def main():
             for s in stats:
                 wr.writerow(s)
     if STAT_HISTO_P:
+        if not os.path.exists('exp'):
+            os.makedirs('exp')
         with open('exp/stats_hist_p9_'+str(p_pol_size)+'_'+str(u_pol_size)+'.csv', 'wb') as f:
             wr = csv.writer(f, quoting=csv.QUOTE_NONE, delimiter=',', escapechar=' ')
             wr.writerow(["Overlap", "Length", "Incompatibility","PrivacySize","UtilitySize"])
@@ -267,11 +271,15 @@ def main():
             for s in stats:
                 wr.writerow(s)
     if STAT_HISTO_U:
+        if not os.path.exists('exp'):
+            os.makedirs('exp')
         with open('exp/stats_hist_u9_'+str(p_pol_size)+'_'+str(u_pol_size)+'.csv', 'wb') as f:
             wr = csv.writer(f, quoting=csv.QUOTE_NONE, delimiter=',', escapechar=' ')
             wr.writerow(["Overlap", "Length", "Incompatibility","PrivacySize","UtilitySize"])
             wr = csv.writer(f, quoting=csv.QUOTE_ALL)
             for s in stats:
                 wr.writerow(s)
+
+
 if __name__ == "__main__":
     main()
