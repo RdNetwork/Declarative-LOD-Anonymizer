@@ -1,0 +1,147 @@
+<generator>
+	<size>1</size>
+
+	<graph>
+		<nodes>20000</nodes>
+	</graph>
+
+	<predicates>
+		<size>12</size>
+
+        <alias symbol="0">tcl:validator</alias>
+        <proportion symbol="0">0.5</proportion>
+
+        <alias symbol="1">tcl:validDateTime</alias>
+        <proportion symbol="1">0.5</proportion>
+
+        <alias symbol="2">tcl:user</alias>
+        <proportion symbol="2">0.5</proportion>
+        
+        <alias symbol="3">geo:latitude</alias>
+        <proportion symbol="3">0.5</proportion>
+        
+        <alias symbol="4">geo:longitude</alias>
+        <proportion symbol="4">0.5</proportion>
+
+        <alias symbol="5">datex:subscription</alias>
+        <proportion symbol="5">0.5</proportion>
+                
+        <alias symbol="6">foaf:givenName</alias>
+        <proportion symbol="6">0.5</proportion>
+                
+        <alias symbol="7">foaf:familyName</alias>
+        <proportion symbol="7">0.5</proportion>
+
+        <alias symbol="8">tcl:birthday</alias>
+        <proportion symbol="8">0.5</proportion>
+                
+        <alias symbol="9">datex:subscriptionStartTime</alias>
+        <proportion symbol="9">0.5</proportion>
+
+        <alias symbol="10">datex:subscriptionStopTime</alias>
+        <proportion symbol="10">0.5</proportion>
+
+        <alias symbol="11">datex:subscriptionReference</alias>
+        <proportion symbol="11">0.5</proportion>
+	</predicates>
+
+	<types>
+		<size>13</size>
+		<alias type="0">Validation</alias>
+		<proportion type="0">0.5</proportion>
+
+		<alias type="1">User</alias>
+		<proportion type="1">0.3</proportion>
+
+		<alias type="2">Subscription</alias>
+		<proportion type="2">0.3</proportion>
+
+        <alias type="3">ValidatorString</alias>
+        <alias type="4">ValidationDateTimeString</alias>
+		<alias type="5">StartDateString</alias>
+        <alias type="6">StopDateString</alias>
+        <alias type="7">BirthDateString</alias>
+        <alias type="8">NameString</alias>
+		<alias type="9">SurnameString</alias>		
+		<alias type="10">SubrefString</alias>	
+		<alias type="11">LatitudeString</alias>
+		<alias type="12">LongitudeString</alias>			
+	</types>
+
+	<schema>
+		<source type="1">
+            <!-- User - subscription - Subscription -->
+			<target type="2" symbol="5" edge_type="0">
+				<indistribution type="gaussian">
+					<mu>3</mu>
+					<sigma>1</sigma>
+				</indistribution>
+				<outdistribution type="uniform">
+					<min>1</min>
+					<max>1</max>
+				</outdistribution>
+			</target>
+            <!-- User - givenName - NameString -->
+	        <target type="8" symbol="6" multiplicity="1"/>
+            <!-- User - familyName - SurnameString -->
+            <target type="9" symbol="7" multiplicity="1"/>
+            <!-- User - birthday - BirthDateString -->
+            <target type="7" symbol="8" multiplicity="1"/>
+        </source>
+        
+        <source type="2">
+            <!-- Subscription - startTime - StartDateString -->
+            <target type="5" symbol="9" multiplicity="1"/>
+            <!-- Subscription - stopTime - StopDateString -->
+            <target type="6" symbol="10" multiplicity="1"/>
+            <!-- Subscription - reference - SubRefString -->
+            <target type="10" symbol="11" multiplicity="1"/>
+        </source>
+
+        <source type="0">
+            <!-- Validation - validator - ValidatorString -->
+            <target type="3" symbol="0" multiplicity="1"/>
+            <!-- Validation - dateTime - ValidationDateTimeString -->
+            <target type="4" symbol="1" multiplicity="1"/>
+            <!-- Validation - user - User -->
+            <target type="1" symbol="2" edge_type="1">
+				<indistribution type="gaussian">
+					<mu>40</mu>
+					<sigma>10</sigma>
+				</indistribution>
+				<outdistribution type="uniform">
+					<min>1</min>
+					<max>1</max>
+				</outdistribution>
+			</target>
+            <!-- Validation - latitude - LatitudeString -->
+            <target type="11" symbol="3" multiplicity="1"/>
+            <!-- Validation - longitude - LongitudeString -->
+            <target type="12" symbol="4" multiplicity="1"/>
+        </source>
+
+	</schema>
+
+
+	<workload id="0" size="500">
+		<!-- bounds for the size of these queries -->
+		<size>
+			<conjuncts min="1" max="6"/>	<!-- number of A^M where M is a multiplicity 1 or * -->
+			<disjuncts min="1" max="1"/>	<!-- number of w_1 + ... + w_n in each A -->
+			<length min="1" max="1"/>		<!-- number of a_1 . ... . a_m in each w_i -->
+		</size>
+
+		<!-- probability to have "*" as multiplicity of the conjuncts -->
+		<multiplicity star="0"/>
+
+		<!-- the arity of the generated queries, we allow 0 for Boolean queries -->
+		<arity min="1" max="6"/>
+
+		<!-- we want only linear queries, but not constant nor quadratic -->
+		<selectivity constant="1" linear="1" quadratic="1"/>
+
+		<!-- we want to have in the workload chains and stars, but not cycles, etc. -->
+		<type chain="0" star="0" cycle="0" starchain="1"/>
+	</workload>
+
+</generator>

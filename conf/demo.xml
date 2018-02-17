@@ -1,0 +1,183 @@
+<queries>
+<query>
+  <metadata>
+    <id>0</id>
+    <number>0</number>
+    <arity>1</arity>
+  </metadata>
+  <head>
+    <var>?n</var>
+  </head>
+  <bodies>
+    <body>
+      <conjunct src="?c" trg="tcl:Validation">
+      <disj>
+        <concat>
+          <symbol>rdf:type</symbol>
+        </concat>
+      </disj>
+      </conjunct>
+      <conjunct src="?c" trg="?u">
+      <disj>
+        <concat>
+          <symbol>tcl:user</symbol>
+        </concat>
+      </disj>
+      </conjunct>
+      <conjunct src="?u" trg="tcl:User">
+      <disj>
+        <concat>
+          <symbol>rdf:type</symbol>
+        </concat>
+      </disj>
+      </conjunct>
+      <conjunct src="?u" trg="?n">
+      <disj>
+        <concat>
+          <symbol>foaf:familyName</symbol>
+        </concat>
+      </disj>
+      </conjunct>
+    </body>
+    <body>
+    </body>
+    <body>
+    </body>
+    <body>
+    </body>
+  </bodies>
+</query>
+
+<query>
+  <metadata>
+    <id>0</id>
+    <number>1</number>
+    <arity>3</arity>
+  </metadata>
+  <head>
+    <var>?u</var>
+    <var>?lat</var>
+    <var>?long</var>
+  </head>
+  <bodies>
+    <body>
+      <conjunct src="?c" trg="tcl:Validation">
+      <disj>
+        <concat>
+          <symbol>rdf:type</symbol>
+        </concat>
+      </disj>
+      </conjunct>
+      <conjunct src="?c" trg="?u">
+      <disj>
+        <concat>
+          <symbol>tcl:user</symbol>
+        </concat>
+      </disj>
+      </conjunct>
+      <conjunct src="?c" trg="?lat">
+      <disj>
+        <concat>
+          <symbol>geo:latitude</symbol>
+        </concat>
+      </disj>
+      </conjunct>
+      <conjunct src="?c" trg="?long">
+      <disj>
+        <concat>
+          <symbol>geo:longitude</symbol>
+        </concat>
+      </disj>
+      </conjunct>
+    </body>
+    <body>
+    </body>
+    <body>
+    </body>
+    <body>
+    </body>
+  </bodies>
+</query>
+
+<query>
+  <metadata>
+    <id>0</id>
+    <number>2</number>
+    <arity>2</arity>
+  </metadata>
+  <head>
+    <var>?u</var>
+    <var>?a</var>
+  </head>
+  <bodies>
+    <body>
+      <conjunct src="?u" trg="tcl:User">
+      <disj>
+        <concat>
+          <symbol>rdf:type</symbol>
+        </concat>
+      </disj>
+      </conjunct>
+      <conjunct src="?u" trg="?a">
+      <disj>
+        <concat>
+          <symbol>foaf:age</symbol>
+        </concat>
+      </disj>
+      </conjunct>
+    </body>
+    <body>
+    </body>
+    <body>
+    </body>
+    <body>
+    </body>
+  </bodies>
+</query>
+
+<query>
+  <metadata>
+    <id>0</id>
+    <number>3</number>
+    <arity>3</arity>
+  </metadata>
+  <head>
+    <var>?c</var>
+    <var>?lat</var>
+    <var>?long</var>
+  </head>
+  <bodies>
+    <body>
+      <conjunct src="?c" trg="tcl:Validation">
+      <disj>
+        <concat>
+          <symbol>rdf:type</symbol>
+        </concat>
+      </disj>
+      </conjunct>
+      <conjunct src="?c" trg="?lat">
+      <disj>
+        <concat>
+          <symbol>geo:latitude</symbol>
+        </concat>
+      </disj>
+      </conjunct>
+      <conjunct src="?c" trg="?long">
+      <disj>
+        <concat>
+          <symbol>geo:longitude</symbol>
+        </concat>
+      </disj>
+      </conjunct>
+    </body>
+    <body>
+    </body>
+    <body>
+    </body>
+    <body>
+    </body>
+  </bodies>
+</query>
+
+
+</queries>
