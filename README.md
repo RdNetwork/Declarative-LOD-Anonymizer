@@ -33,8 +33,8 @@ python main.py
 The graph anonymization feature is still being worked on. Right now, it uses
 a Turtle-formatted RDF graph, named ```graph.ttl``` in the /conf/graphs directory.
 
-You can also use the demo mode, which is ran using a shortened workload and does
-not run the graph anonymization code, only the anonymization sequence generation:
+You can also use the demo mode, which is ran using a shortened workload, with 2
+privacy queries and 2 utility queries used the article's examples:
 
 ```bash
 python main.py -d

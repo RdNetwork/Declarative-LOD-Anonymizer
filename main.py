@@ -41,23 +41,27 @@ def main():
     STAT_HISTO_P = False
     STAT_HISTO_U = False
 
-    p_pol_size = int(sys.argv[1])
-    u_pol_size = int(sys.argv[2])
-    if "-s" in sys.argv[3:]:
-        print "Running in stats mode: 7000 executions looped."
-        STAT = True
-    if "-t" in sys.argv[3:]:
-        print "Running in test mode: no graph anonymisation after computing sequences."
-        TEST = True
-    if "-hu" in sys.argv[3:]:
-        print "Running in histogram (utility fixed) mode: 1400 executions looped."
-        STAT_HISTO_U = True
-    if "-hp" in sys.argv[3:]:
-        print "Running in histogram (privacy fixed) mode: 1400 executions looped"
-        STAT_HISTO_P = True
-    if "-d" in sys.argv[3:]:
+    if "-d" in sys.argv:
         print "Running in demo mode: simple fixed policies used."
         DEMO = True
+        p_pol_size = 2
+        u_pol_size = 2
+    else:
+        p_pol_size = int(sys.argv[1])
+        u_pol_size = int(sys.argv[2])
+        if "-s" in sys.argv[3:]:
+            print "Running in stats mode: 7000 executions looped."
+            STAT = True
+        if "-t" in sys.argv[3:]:
+            print "Running in test mode: no graph anonymisation after computing sequences."
+            TEST = True
+        if "-hu" in sys.argv[3:]:
+            print "Running in histogram (utility fixed) mode: 1400 executions looped."
+            STAT_HISTO_U = True
+        if "-hp" in sys.argv[3:]:
+            print "Running in histogram (privacy fixed) mode: 1400 executions looped"
+            STAT_HISTO_P = True
+
 
     if STAT:
         stats = []
@@ -72,9 +76,9 @@ def main():
     #   DEMO uses a simple workload with 2 short queries.
     print "Fetching query workload..."
     if DEMO:
-        workload = Query.parse_gmark_queries("./conf/workload/demo.xml")
+        workload = Query.parse_gmark_queries("./conf/workloads/demo.xml")
     else:
-        workload = Query.parse_gmark_queries("./conf/workload/starchain-workload.xml")
+        workload = Query.parse_gmark_queries("./conf/workloads/starchain-workload.xml")
 
     avg = average_wl_size(workload) * 3
 
