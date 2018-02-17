@@ -14,7 +14,8 @@ execute the code yourself on our example graph schema.
 ### Prerequisites
 
 This project uses Python and should work on any version of Python 3 and any 
-version of Python starting from Python 2.7.
+version of Python starting from Python 2.7. You must install the [rdflib library](https://github.com/RDFLib/rdflib)
+to run this program.
 
 The query workload is created using [gMark](https://github.com/graphMark/gmark),
 which uses an XML configuration file to generate graphs and queries. You can follow
@@ -39,6 +40,13 @@ privacy queries and 2 utility queries used the article's examples:
 ```bash
 python main.py -d
 ```
+
+The standard execution will compute possible anonymization sequences, each one
+indexed by a number. After choosing a sequence, its operations (here only deletions)
+are performed on the graph, creating several output files:
+
+- A copy file of the original graph, named ```[original graph file name]_orig.ttl```
+- One output file per operations, named ```[original graph file name]_anonymized_stepX.ttl```, X being the number of the applied of the applied operation.
 
 ### Running the tests
 
