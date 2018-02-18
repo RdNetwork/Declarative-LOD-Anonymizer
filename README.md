@@ -31,6 +31,11 @@ which uses an XML configuration file to generate graphs and queries. You can fol
 the instructions on the gMark project to generate your own workload, or use the provided
 ones in the ```/conf/workloads``` directory. By default, ```/conf/workloads/starchain-workload.xml``` is used.
 
+For indication only, the configuration file describing the graph schema used
+for the query worklaod generation is provied, in the file ```/conf/test.xml```.
+You can reuse this file as explained in the gMark documentation to generate
+your own graph and workload.
+
 ## Usage
 
 ### Standard execution
