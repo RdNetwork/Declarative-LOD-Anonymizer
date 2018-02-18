@@ -23,13 +23,13 @@ execute the code yourself on our example graph schema.
 
 This project uses Python and should work on any version of Python 3 and any
 version of Python starting from Python 2.7. You must install the [rdflib](https://github.com/RDFLib/rdflib)
-and[unification](https://pypi.python.org/pypi/unification/0.2.2) Python libraries
+and [unification](https://pypi.python.org/pypi/unification/0.2.2) Python libraries
 to run this program.
 
 The query workload is created using [gMark](https://github.com/graphMark/gmark),
 which uses an XML configuration file to generate graphs and queries. You can follow
 the instructions on the gMark project to generate your own workload, or use the provided
-ones in the /conf/workloads directory. By default, /conf/workloads/starchain-workload.xml is used.
+ones in the ```/conf/workloads``` directory. By default, ```/conf/workloads/starchain-workload.xml``` is used.
 
 ## Usage
 
@@ -41,7 +41,7 @@ python main.py
 ```
 
 The graph anonymization feature is still being worked on. Right now, it uses
-a Turtle-formatted RDF graph, named ```graph.ttl``` in the /conf/graphs directory.
+a Turtle-formatted RDF graph, named ```graph.ttl``` in the ```/conf/graphs``` directory.
 
 You can also use the demo mode, which is ran using a shortened workload, with 2
 privacy queries and 2 utility queries used the article's examples:
