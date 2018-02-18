@@ -82,7 +82,7 @@ The first creates general stats about compatibility with 7000 executions (cf.
 Figures 2a, 2b and 2c in the article), the second created data when utility size
 is fixed, in 1400 executions (200 executions for 7 different privacy sizes, cf. Fig. 1a),
 the third when privacy size is fixed (200 executions for 7 different utility sizes, cf. Fig. 1b).
- 
+
 You can also run each of these command separately using the previously mentioned flags,
 as follows:
 
@@ -94,10 +94,14 @@ With P being the cardinalty of the privacy policy (the number of queries to be
 picked from the workload and affected to this query), and U the cardinality of
 the utility policy.
 
+The statistics are stored as 3 separate CSV files in the ```exp``` directory.
+
 ### Plot statisics
 
 Graph figures can be recreated using the provided R script ```plot.r```. You can run it
 directly in your favorite R editor, or copy/paste the contents in the R console.
+You need to install the [plyr](https://cran.r-project.org/web/packages/plyr/index.html)
+R package for this script to work.
 
 This script will generate five figures in the ```exp``` directory as follows:
 

@@ -78,7 +78,7 @@ def main():
     if DEMO:
         workload = Query.parse_gmark_queries("./conf/workloads/demo.xml")
     else:
-        workload = Query.parse_gmark_queries("./conf/workloads/starchain-workload.xml")
+        workload = Query.parse_gmark_queries("./conf/workloads/starsnow-workload.xml")
 
     avg = average_wl_size(workload) * 3
 
