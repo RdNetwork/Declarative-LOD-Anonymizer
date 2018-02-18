@@ -110,3 +110,9 @@ This script will generate five figures in the ```exp``` directory as follows:
 - ```cand_size_util_3_3.png```: Boxplot of the size of found candidate sets depending on the utility size (privacy size is fixed)
 - ```incomp_size_priv_3_3.png```: Histogram of the number of compatible cases found depending on the privacy size (utility size is fixed)
 - ```incomp_size_util_3_3.png```: Histogram of the number of compatible cases found depending on the utility size (privacy size is fixed)
+
+## Additional statistics
+
+Example statistics for star queries, star/chain queries and snowflake queries are
+present in the ```exp_star```, ```exp_starsnow``` and ```exp_snowflake``` folders, as well as
+their analysis in the Jupyter Notebok *Experimental study for other types of queries*.
