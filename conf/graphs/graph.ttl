@@ -1,0 +1,576 @@
+@prefix rdf:	<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc:     <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms:<http://purl.org/dc/terms/> .
+@prefix foaf: 	<http://xmlns.com/foaf/0.1/> .
+@prefix geo:	<http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix datex: 	<http://vocab.datex.org/terms#> .
+@prefix lgdo:	<http://linkedgeodata.org/ontology/> .
+@prefix tcl: 	<http://localhost/> .
+@prefix gld: 	<http://data.grandlyon.com/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix gtfs: 	<http://vocab.gtfs.org/terms#> .
+
+
+### Artificial SYTRAL private data: Transportation users ###
+
+# tcl:users {
+	tcl:u0
+		a		tcl:User;
+		datex:subscription [
+			a		datex:Subscription;
+			datex:subscriptionStartTime		"2010-06-28"^^xsd:date;
+			datex:subscriptionStopTime		"2017-02-09"^^xsd:date;
+			datex:subscriptionReference		"Jeune";
+		];
+		foaf:givenName		"Debord";
+		foaf:familyName		"John";
+		tcl:birthday		"1929-02-16"^^xsd:dateTime.
+	tcl:u1
+		a		tcl:User;
+		foaf:givenName		"Hoey";
+		foaf:familyName		"Edward";
+		tcl:birthday		"1979-04-05"^^xsd:dateTime.
+	tcl:u2
+		a		tcl:User;
+		foaf:givenName		"Alvardo";
+		foaf:familyName		"Joseph";
+		tcl:birthday		"1922-10-18"^^xsd:dateTime.
+	tcl:u3
+		a		tcl:User;
+		foaf:givenName		"Shoemaker";
+		foaf:familyName		"Jeff";
+		tcl:birthday		"1998-04-19"^^xsd:dateTime.
+	tcl:u4
+		a		tcl:User;
+		datex:subscription [
+			a		datex:Subscription;
+			datex:subscriptionStartTime		"2010-11-22"^^xsd:date;
+			datex:subscriptionStopTime		"2013-05-18"^^xsd:date;
+			datex:subscriptionReference		"Sénior";
+		];
+		foaf:givenName		"Berger";
+		foaf:familyName		"Paul";
+		tcl:birthday		"1942-10-04"^^xsd:dateTime.
+	tcl:u5
+		a		tcl:User;
+		datex:subscription [
+			a		datex:Subscription;
+			datex:subscriptionStartTime		"2007-09-07"^^xsd:date;
+			datex:subscriptionStopTime		"2016-08-12"^^xsd:date;
+			datex:subscriptionReference		"Jeune";
+		];
+		foaf:givenName		"Wade";
+		foaf:familyName		"Robert";
+		tcl:birthday		"1907-12-13"^^xsd:dateTime.
+	tcl:u6
+		a		tcl:User;
+		foaf:givenName		"Adams";
+		foaf:familyName		"Jose";
+		tcl:birthday		"1990-05-09"^^xsd:dateTime.
+	tcl:u7
+		a		tcl:User;
+		foaf:givenName		"Flowers";
+		foaf:familyName		"Billy";
+		tcl:birthday		"1950-03-08"^^xsd:dateTime.
+	tcl:u8
+		a		tcl:User;
+		datex:subscription [
+			a		datex:Subscription;
+			datex:subscriptionStartTime		"2008-09-10"^^xsd:date;
+			datex:subscriptionReference		"Sénior";
+		];
+		foaf:givenName		"Jones";
+		foaf:familyName		"Audrey";
+		tcl:birthday		"1919-01-24"^^xsd:dateTime.
+	tcl:u9
+		a		tcl:User;
+		foaf:givenName		"Cannata";
+		foaf:familyName		"Janice";
+		tcl:birthday		"1913-04-12"^^xsd:dateTime.
+	tcl:u10
+		a		tcl:User;
+		foaf:givenName		"Boyce";
+		foaf:familyName		"Brian";
+		tcl:birthday		"1946-01-31"^^xsd:dateTime.
+	tcl:u11
+		a		tcl:User;
+		datex:subscription [
+			a		datex:Subscription;
+			datex:subscriptionStartTime		"2008-03-30"^^xsd:date;
+			datex:subscriptionStopTime		"2013-10-22"^^xsd:date;
+			datex:subscriptionReference		"Campus";
+		];
+		foaf:givenName		"Thielen";
+		foaf:familyName		"Marilyn";
+		tcl:birthday		"1975-04-26"^^xsd:dateTime.
+	tcl:u12
+		a		tcl:User;
+		foaf:givenName		"Smith";
+		foaf:familyName		"Randy";
+		tcl:birthday		"1979-01-08"^^xsd:dateTime.
+	tcl:u13
+		a		tcl:User;
+		datex:subscription [
+			a		datex:Subscription;
+			datex:subscriptionStartTime		"2009-07-31"^^xsd:date;
+			datex:subscriptionStopTime		"2014-08-29"^^xsd:date;
+			datex:subscriptionReference		"Pro";
+		];
+		foaf:givenName		"Cancilla";
+		foaf:familyName		"Linda";
+		tcl:birthday		"1954-04-02"^^xsd:dateTime.
+	tcl:u14
+		a		tcl:User;
+		foaf:givenName		"Saleha";
+		foaf:familyName		"Mildred";
+		tcl:birthday		"1915-05-14"^^xsd:dateTime.
+	tcl:u15
+		a		tcl:User;
+		datex:subscription [
+			a		datex:Subscription;
+			datex:subscriptionStartTime		"2010-12-09"^^xsd:date;
+			datex:subscriptionStopTime		"2013-08-11"^^xsd:date;
+			datex:subscriptionReference		"Campus";
+		];
+		foaf:givenName		"Flores";
+		foaf:familyName		"Theodore";
+		tcl:birthday		"1992-09-19"^^xsd:dateTime.
+	tcl:u16
+		a		tcl:User;
+		foaf:givenName		"Warren";
+		foaf:familyName		"Raymond";
+		tcl:birthday		"1965-04-15"^^xsd:dateTime.
+	tcl:u17
+		a		tcl:User;
+		datex:subscription [
+			a		datex:Subscription;
+			datex:subscriptionStartTime		"2007-08-21"^^xsd:date;
+			datex:subscriptionReference		"Pro";
+		];
+		foaf:givenName		"Morgan";
+		foaf:familyName		"Eric";
+		tcl:birthday		"1936-09-07"^^xsd:dateTime.
+	tcl:u18
+		a		tcl:User;
+		foaf:givenName		"Watson";
+		foaf:familyName		"Michelle";
+		tcl:birthday		"1938-10-29"^^xsd:dateTime.
+	tcl:u19
+		a		tcl:User;
+		datex:subscription [
+			a		datex:Subscription;
+			datex:subscriptionStartTime		"2009-01-25"^^xsd:date;
+			datex:subscriptionStopTime		"2012-12-18"^^xsd:date;
+			datex:subscriptionReference		"Campus";
+		];
+		foaf:givenName		"Allison";
+		foaf:familyName		"Janie";
+		tcl:birthday		"1995-05-28"^^xsd:dateTime.
+	tcl:u20
+		a		tcl:User;
+		foaf:givenName		"Barreto";
+		foaf:familyName		"Chad";
+		tcl:birthday		"1978-07-09"^^xsd:dateTime.
+	tcl:u21
+		a		tcl:User;
+		foaf:givenName		"Bell";
+		foaf:familyName		"Mark";
+		tcl:birthday		"1938-01-06"^^xsd:dateTime.
+	tcl:u22
+		a		tcl:User;
+		foaf:givenName		"Alexander";
+		foaf:familyName		"Brian";
+		tcl:birthday		"1904-03-18"^^xsd:dateTime.
+	tcl:u23
+		a		tcl:User;
+		datex:subscription [
+			a		datex:Subscription;
+			datex:subscriptionStartTime		"2007-12-08"^^xsd:date;
+			datex:subscriptionReference		"Sénior";
+		];
+		foaf:givenName		"Kuzma";
+		foaf:familyName		"Myra";
+		tcl:birthday		"1972-10-31"^^xsd:dateTime.
+	tcl:u24
+		a		tcl:User;
+		foaf:givenName		"Melville";
+		foaf:familyName		"Brett";
+		tcl:birthday		"1922-04-30"^^xsd:dateTime.
+	tcl:u25
+		a		tcl:User;
+		foaf:givenName		"Williams";
+		foaf:familyName		"Tommy";
+		tcl:birthday		"1908-01-04"^^xsd:dateTime.
+	tcl:u26
+		a		tcl:User;
+		datex:subscription [
+			a		datex:Subscription;
+			datex:subscriptionStartTime		"2010-04-23"^^xsd:date;
+			datex:subscriptionStopTime		"2014-03-11"^^xsd:date;
+			datex:subscriptionReference		"Pro";
+		];
+		foaf:givenName		"Titcomb";
+		foaf:familyName		"Joyce";
+		tcl:birthday		"1991-09-19"^^xsd:dateTime.
+	tcl:u27
+		a		tcl:User;
+		datex:subscription [
+			a		datex:Subscription;
+			datex:subscriptionStartTime		"2009-01-21"^^xsd:date;
+			datex:subscriptionStopTime		"2013-05-15"^^xsd:date;
+			datex:subscriptionReference		"Sénior";
+		];
+		foaf:givenName		"Thacker";
+		foaf:familyName		"Noah";
+		tcl:birthday		"1918-01-18"^^xsd:dateTime.
+	tcl:u28
+		a		tcl:User;
+		foaf:givenName		"Hopper";
+		foaf:familyName		"Javier";
+		tcl:birthday		"1925-06-09"^^xsd:dateTime.
+	tcl:u29
+		a		tcl:User;
+		foaf:givenName		"Morris";
+		foaf:familyName		"Connie";
+		tcl:birthday		"1990-01-23"^^xsd:dateTime.
+# }
+
+
+### Artificial SYTRAL private data: Traffic information ###
+
+# tcl:valids {
+	tcl:v0
+		a		tcl:Validation;
+		tcl:validator		"2581";
+		tcl:validationDatetime		"2017-01-07 12:12:31"^^xsd:dateTime;
+		geo:latitude		"45.760068118";
+		geo:longitude		"4.82577379538".
+	tcl:v1
+		a		tcl:Validation;
+		tcl:validator		"4582";
+		tcl:validationDatetime		"2017-03-06 18:43:43"^^xsd:dateTime;
+		tcl:user			tcl:u20;
+		geo:latitude		"45.760259124";
+		geo:longitude		"4.82504693204".
+	tcl:v2
+		a		tcl:Validation;
+		tcl:validator		"1874";
+		tcl:validationDatetime		"2017-01-29 03:52:58"^^xsd:dateTime;
+		tcl:user			tcl:u2;
+		geo:latitude		"45.7601417493";
+		geo:longitude		"4.82533354187".
+	tcl:v3
+		a		tcl:Validation;
+		tcl:validator		"3973";
+		tcl:validationDatetime		"2017-01-10 10:51:15"^^xsd:dateTime;
+		tcl:user			tcl:u7;
+		geo:latitude		"45.7599844482";
+		geo:longitude		"4.82593791998".
+	tcl:v4
+		a		tcl:Validation;
+		tcl:validator		"632";
+		tcl:validationDatetime		"2017-02-02 22:24:59"^^xsd:dateTime;
+		tcl:user			tcl:u3;
+		geo:latitude		"45.7241349251";
+		geo:longitude		"4.82932924085".
+	tcl:v5
+		a		tcl:Validation;
+		tcl:validator		"2826";
+		tcl:validationDatetime		"2017-01-29 21:53:23"^^xsd:dateTime;
+		geo:latitude		"45.7602005671";
+		geo:longitude		"4.82515610649".
+	tcl:v6
+		a		tcl:Validation;
+		tcl:validator		"1895";
+		tcl:validationDatetime		"2017-03-24 07:13:51"^^xsd:dateTime;
+		geo:latitude		"45.7615906794";
+		geo:longitude		"4.85731860624".
+	tcl:v7
+		a		tcl:Validation;
+		tcl:validator		"1049";
+		tcl:validationDatetime		"2017-03-10 15:31:46"^^xsd:dateTime;
+		tcl:user			tcl:u11;
+		geo:latitude		"45.7600555184";
+		geo:longitude		"4.82576949177".
+	tcl:v8
+		a		tcl:Validation;
+		tcl:validator		"3740";
+		tcl:validationDatetime		"2017-02-04 01:56:09"^^xsd:dateTime;
+		geo:latitude		"45.7558347563";
+		geo:longitude		"4.84649391753".
+	tcl:v9
+		a		tcl:Validation;
+		tcl:validator		"751";
+		tcl:validationDatetime		"2017-05-19 15:15:00"^^xsd:dateTime;
+		geo:latitude		"45.72107765";
+		geo:longitude		"4.82696560172".
+	tcl:v10
+		a		tcl:Validation;
+		tcl:validator		"4033";
+		tcl:validationDatetime		"2017-04-07 08:24:59"^^xsd:dateTime;
+		geo:latitude		"45.7601538443";
+		geo:longitude		"4.82534029765".
+	tcl:v11
+		a		tcl:Validation;
+		tcl:validator		"2286";
+		tcl:validationDatetime		"2017-01-27 08:54:21"^^xsd:dateTime;
+		geo:latitude		"45.7597252799";
+		geo:longitude		"4.82501402837".
+	tcl:v12
+		a		tcl:Validation;
+		tcl:validator		"1962";
+		tcl:validationDatetime		"2017-02-20 14:19:12"^^xsd:dateTime;
+		geo:latitude		"45.7572069293";
+		geo:longitude		"4.81656177866".
+	tcl:v13
+		a		tcl:Validation;
+		tcl:validator		"1249";
+		tcl:validationDatetime		"2017-04-16 22:52:35"^^xsd:dateTime;
+		tcl:user			tcl:u21;
+		geo:latitude		"45.7693355741";
+		geo:longitude		"4.8609864328".
+	tcl:v14
+		a		tcl:Validation;
+		tcl:validator		"4276";
+		tcl:validationDatetime		"2017-04-01 03:32:00"^^xsd:dateTime;
+		geo:latitude		"45.7628349898";
+		geo:longitude		"4.85959398867".
+	tcl:v15
+		a		tcl:Validation;
+		tcl:validator		"1819";
+		tcl:validationDatetime		"2017-06-15 05:26:11"^^xsd:dateTime;
+		tcl:user			tcl:u27;
+		geo:latitude		"45.7338864896";
+		geo:longitude		"4.88914514043".
+	tcl:v16
+		a		tcl:Validation;
+		tcl:validator		"2343";
+		tcl:validationDatetime		"2017-04-20 17:24:48"^^xsd:dateTime;
+		tcl:user			tcl:u25;
+		geo:latitude		"45.7684839005";
+		geo:longitude		"4.88533419173".
+	tcl:v17
+		a		tcl:Validation;
+		tcl:validator		"1442";
+		tcl:validationDatetime		"2017-03-17 13:23:28"^^xsd:dateTime;
+		tcl:user			tcl:u25;
+		geo:latitude		"45.7599724233";
+		geo:longitude		"4.82594480511".
+	tcl:v18
+		a		tcl:Validation;
+		tcl:validator		"812";
+		tcl:validationDatetime		"2017-03-18 07:06:41"^^xsd:dateTime;
+		tcl:user			tcl:u2;
+		geo:latitude		"45.7650879329";
+		geo:longitude		"4.85956858884".
+	tcl:v19
+		a		tcl:Validation;
+		tcl:validator		"1914";
+		tcl:validationDatetime		"2017-04-30 12:22:44"^^xsd:dateTime;
+		tcl:user			tcl:u28;
+		geo:latitude		"45.7583929287";
+		geo:longitude		"4.83458567805".
+	tcl:v20
+		a		tcl:Validation;
+		tcl:validator		"386";
+		tcl:validationDatetime		"2017-01-20 21:10:58"^^xsd:dateTime;
+		tcl:user			tcl:u11;
+		geo:latitude		"45.7744990575";
+		geo:longitude		"4.83193218139".
+	tcl:v21
+		a		tcl:Validation;
+		tcl:validator		"683";
+		tcl:validationDatetime		"2017-05-26 01:01:22"^^xsd:dateTime;
+		geo:latitude		"45.723386661";
+		geo:longitude		"4.82890470577".
+	tcl:v22
+		a		tcl:Validation;
+		tcl:validator		"827";
+		tcl:validationDatetime		"2017-03-15 10:32:49"^^xsd:dateTime;
+		tcl:user			tcl:u25;
+		geo:latitude		"45.7545648558";
+		geo:longitude		"4.8468603755".
+	tcl:v23
+		a		tcl:Validation;
+		tcl:validator		"1182";
+		tcl:validationDatetime		"2017-02-05 14:02:22"^^xsd:dateTime;
+		geo:latitude		"45.7615906794";
+		geo:longitude		"4.85731860624".
+	tcl:v24
+		a		tcl:Validation;
+		tcl:validator		"115";
+		tcl:validationDatetime		"2017-06-17 00:16:01"^^xsd:dateTime;
+		tcl:user			tcl:u28;
+		geo:latitude		"45.7350832976";
+		geo:longitude		"4.88956310282".
+	tcl:v25
+		a		tcl:Validation;
+		tcl:validator		"2815";
+		tcl:validationDatetime		"2017-05-10 06:46:07"^^xsd:dateTime;
+		geo:latitude		"45.7601538443";
+		geo:longitude		"4.82534029765".
+	tcl:v26
+		a		tcl:Validation;
+		tcl:validator		"1597";
+		tcl:validationDatetime		"2017-06-15 09:34:37"^^xsd:dateTime;
+		tcl:user			tcl:u26;
+		geo:latitude		"45.7586619107";
+		geo:longitude		"4.82147231501".
+	tcl:v27
+		a		tcl:Validation;
+		tcl:validator		"4813";
+		tcl:validationDatetime		"2017-02-09 14:17:19"^^xsd:dateTime;
+		geo:latitude		"45.7772108303";
+		geo:longitude		"4.82879516188".
+	tcl:v28
+		a		tcl:Validation;
+		tcl:validator		"718";
+		tcl:validationDatetime		"2017-01-12 02:29:32"^^xsd:dateTime;
+		tcl:user			tcl:u6;
+		geo:latitude		"45.7599724233";
+		geo:longitude		"4.82594480511".
+	tcl:v29
+		a		tcl:Validation;
+		tcl:validator		"885";
+		tcl:validationDatetime		"2017-03-19 17:36:33"^^xsd:dateTime;
+		geo:latitude		"45.7169195603";
+		geo:longitude		"4.81631803369".
+	tcl:v30
+		a		tcl:Validation;
+		tcl:validator		"3002";
+		tcl:validationDatetime		"2017-06-14 12:40:42"^^xsd:dateTime;
+		geo:latitude		"45.7199111162";
+		geo:longitude		"4.82544403892".
+	tcl:v31
+		a		tcl:Validation;
+		tcl:validator		"770";
+		tcl:validationDatetime		"2017-02-21 08:11:50"^^xsd:dateTime;
+		tcl:user			tcl:u8;
+		geo:latitude		"45.7707999618";
+		geo:longitude		"4.86631297715".
+	tcl:v32
+		a		tcl:Validation;
+		tcl:validator		"2385";
+		tcl:validationDatetime		"2017-01-15 22:17:38"^^xsd:dateTime;
+		tcl:user			tcl:u21;
+		geo:latitude		"45.780560942";
+		geo:longitude		"4.80433268565".
+	tcl:v33
+		a		tcl:Validation;
+		tcl:validator		"440";
+		tcl:validationDatetime		"2017-04-02 20:10:40"^^xsd:dateTime;
+		tcl:user			tcl:u25;
+		geo:latitude		"45.7569979663";
+		geo:longitude		"4.84619185302".
+	tcl:v34
+		a		tcl:Validation;
+		tcl:validator		"1182";
+		tcl:validationDatetime		"2017-05-26 01:37:08"^^xsd:dateTime;
+		tcl:user			tcl:u16;
+		geo:latitude		"45.7818671412";
+		geo:longitude		"4.82819712031".
+	tcl:v35
+		a		tcl:Validation;
+		tcl:validator		"4430";
+		tcl:validationDatetime		"2017-06-22 18:02:09"^^xsd:dateTime;
+		tcl:user			tcl:u21;
+		geo:latitude		"45.7599724233";
+		geo:longitude		"4.82594480511".
+	tcl:v36
+		a		tcl:Validation;
+		tcl:validator		"1460";
+		tcl:validationDatetime		"2017-05-02 04:17:56"^^xsd:dateTime;
+		geo:latitude		"45.7189705894";
+		geo:longitude		"4.82403985031".
+	tcl:v37
+		a		tcl:Validation;
+		tcl:validator		"698";
+		tcl:validationDatetime		"2017-04-04 09:35:33"^^xsd:dateTime;
+		tcl:user			tcl:u19;
+		geo:latitude		"45.760259124";
+		geo:longitude		"4.82504693204".
+	tcl:v38
+		a		tcl:Validation;
+		tcl:validator		"3686";
+		tcl:validationDatetime		"2017-01-15 04:55:49"^^xsd:dateTime;
+		tcl:user			tcl:u12;
+		geo:latitude		"45.7599724233";
+		geo:longitude		"4.82594480511".
+	tcl:v39
+		a		tcl:Validation;
+		tcl:validator		"2926";
+		tcl:validationDatetime		"2017-05-06 02:44:00"^^xsd:dateTime;
+		geo:latitude		"45.7601538443";
+		geo:longitude		"4.82534029765".
+	tcl:v40
+		a		tcl:Validation;
+		tcl:validator		"719";
+		tcl:validationDatetime		"2017-06-03 20:20:17"^^xsd:dateTime;
+		tcl:user			tcl:u20;
+		geo:latitude		"45.7599724233";
+		geo:longitude		"4.82594480511".
+	tcl:v41
+		a		tcl:Validation;
+		tcl:validator		"1250";
+		tcl:validationDatetime		"2017-06-07 18:51:06"^^xsd:dateTime;
+		geo:latitude		"45.7807076697";
+		geo:longitude		"4.8274377187".
+	tcl:v42
+		a		tcl:Validation;
+		tcl:validator		"558";
+		tcl:validationDatetime		"2017-01-21 07:23:18"^^xsd:dateTime;
+		tcl:user			tcl:u5;
+		geo:latitude		"45.7749783095";
+		geo:longitude		"4.83021558174".
+	tcl:v43
+		a		tcl:Validation;
+		tcl:validator		"3425";
+		tcl:validationDatetime		"2017-02-11 20:27:20"^^xsd:dateTime;
+		geo:latitude		"45.7601538443";
+		geo:longitude		"4.82534029765".
+	tcl:v44
+		a		tcl:Validation;
+		tcl:validator		"785";
+		tcl:validationDatetime		"2017-05-05 14:05:23"^^xsd:dateTime;
+		tcl:user			tcl:u13;
+		geo:latitude		"45.756135008";
+		geo:longitude		"4.84050864733".
+	tcl:v45
+		a		tcl:Validation;
+		tcl:validator		"237";
+		tcl:validationDatetime		"2017-04-29 17:59:32"^^xsd:dateTime;
+		tcl:user			tcl:u29;
+		geo:latitude		"45.7538670509";
+		geo:longitude		"4.8470062974".
+	tcl:v46
+		a		tcl:Validation;
+		tcl:validator		"33";
+		tcl:validationDatetime		"2017-03-02 02:37:13"^^xsd:dateTime;
+		tcl:user			tcl:u22;
+		geo:latitude		"45.7586288567";
+		geo:longitude		"4.84657024947".
+	tcl:v47
+		a		tcl:Validation;
+		tcl:validator		"4267";
+		tcl:validationDatetime		"2017-02-13 16:59:37"^^xsd:dateTime;
+		geo:latitude		"45.7322074911";
+		geo:longitude		"4.88834439366".
+	tcl:v48
+		a		tcl:Validation;
+		tcl:validator		"1017";
+		tcl:validationDatetime		"2017-05-04 06:13:32"^^xsd:dateTime;
+		tcl:user			tcl:u0;
+		geo:latitude		"45.7600555184";
+		geo:longitude		"4.82576949177".
+	tcl:v49
+		a		tcl:Validation;
+		tcl:validator		"121";
+		tcl:validationDatetime		"2017-03-02 02:09:38"^^xsd:dateTime;
+		tcl:user			tcl:u21;
+		geo:latitude		"45.762552726";
+		geo:longitude		"4.85950815573".
+# }
+
