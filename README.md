@@ -14,6 +14,19 @@ the original graph. The code then computes possible sequences of operations to
 perform on the graph to anonymize it based on this set of contraints. If such
 sequences are found, an output is created with the supposedly anonymized graph.
 
+## Project architecture
+
+- ```*.py``` files: framework implementation in Python.
+  - ```main.py``` being the main program to run the software.
+- ```*.sh``` files: statistics generators (Bash scripts).
+  - ```run_stats.sh``` run stats for the standard case (both policies of cardinality 3).
+  - ```run_stats_all.sh``` extends stats for policy cardinalities between 1 and 4)
+- ```plot.r```: R script used to plot graphs used in the article and the added notebook.
+- ```conf``` directory: directory for configuration and input files (query workloads, test graphs, gMark configuration files).
+- ```exp``` directory (empty at first): output directory for statistics tables and figures.
+- ```out``` directory (empty at first): output directory for anonymized graphs.
+- *Experimental study for other types of queries*: Jupyter notebook describing additional experiments not detailed in the ESWC submission.
+
 ## Setup
 
 To reproduce the various experiments and examples from the article, you can
