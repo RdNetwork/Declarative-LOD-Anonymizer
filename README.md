@@ -28,8 +28,9 @@ to run this program.
 
 The query workload is created using [gMark](https://github.com/graphMark/gmark),
 which uses an XML configuration file to generate graphs and queries. You can follow
-the instructions on the gMark project to generate your own workload, or use the provided
-ones in the ```/conf/workloads``` directory. By default, ```/conf/workloads/starchain-workload.xml``` is used.
+the instructions on the gMark project to generate your own workload, or use the
+ones provided in the ```/conf/workloads``` directory. By default, ```/conf/workloads/starchain-workload.xml```
+is used.
 
 For indication only, the configuration file describing the graph schema used
 for the query worklaod generation is provied, in the file ```/conf/test.xml```.
@@ -46,7 +47,8 @@ python main.py
 ```
 
 The graph anonymization feature is still being worked on. Right now, it uses
-a Turtle-formatted RDF graph, named ```graph.ttl``` in the ```/conf/graphs``` directory.
+a Turtle-formatted RDF graph, named ```graph.ttl``` in the ```/conf/graphs```
+directory.
 
 You can also use the demo mode, which is ran using a shortened workload, with 2
 privacy queries and 2 utility queries used the article's examples:
@@ -64,7 +66,8 @@ are performed on the graph, creating several output files:
 
 ### Running the tests
 
-To reproduce the tests presented in the ESWC submission, you can run the statistics script:
+To reproduce the tests presented in the ESWC submission, you can run the
+statistics script:
 
 ```bash
 ./run_stats.sh
@@ -78,13 +81,14 @@ python main.py 3 3 -hu
 python main.py 3 3 -hp
 ```
 
-The first creates general stats about compatibility with 7000 executions (cf. 
+The first creates general stats about compatibility with 7000 executions (cf.
 Figures 2a, 2b and 2c in the article), the second created data when utility size
-is fixed, in 1400 executions (200 executions for 7 different privacy sizes, cf. Fig. 1a),
-the third when privacy size is fixed (200 executions for 7 different utility sizes, cf. Fig. 1b).
+is fixed, in 1400 executions (200 executions for 7 different privacy sizes, cf.
+Fig. 1a), the third when privacy size is fixed (200 executions for 7 different
+utility sizes, cf. Fig. 1b).
 
-You can also run each of these command separately using the previously mentioned flags,
-as follows:
+You can also run each of these command separately using the previously mentioned
+flags, as follows:
 
 ```bash
 python main.py P U [-s|-hu|-hp]
@@ -114,5 +118,6 @@ This script will generate five figures in the ```exp``` directory as follows:
 ## Additional statistics
 
 Example statistics for star queries, star/chain queries and starchain queries are
-present in the ```exp_star```, ```exp_star_starchain``` and ```exp_starchain``` folders, as well as
-their analysis in the Jupyter Notebok *Experimental study for other types of queries*.
+present in the ```exp_star```, ```exp_star_starchain``` and ```exp_starchain```
+folders and are presented in the Jupyter notebook *Experimental study for other 
+types of queries*.
