@@ -113,6 +113,6 @@ This script will generate five figures in the ```exp``` directory as follows:
 
 ## Additional statistics
 
-Example statistics for star queries, star/chain queries and snowflake queries are
-present in the ```exp_star```, ```exp_starsnow``` and ```exp_snowflake``` folders, as well as
+Example statistics for star queries, star/chain queries and starchain queries are
+present in the ```exp_star```, ```exp_star_starchain``` and ```exp_starchain``` folders, as well as
 their analysis in the Jupyter Notebok *Experimental study for other types of queries*.
