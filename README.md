@@ -59,6 +59,7 @@ using 12 predicates linking 13 data types, in a final graph of 20000 nodes.
 ### Standard execution
 
 To run the program and anonymize a graph, just run it as follows:
+
 ```bash
 python main.py
 ```
@@ -80,6 +81,9 @@ are performed on the graph, creating several output files:
 
 - A copy file of the original graph, named ```[original graph file name]_orig.ttl```
 - One output file per operations, named ```[original graph file name]_anonymized_stepX.ttl```, X being the number of the applied of the applied operation.
+
+**/!\ WARNING:** running the program in standard mode will NOT erase previous
+outputs. RDF stores files can get pretty big, so be careful!
 
 ### Running the tests
 
@@ -136,5 +140,5 @@ This script will generate five figures in the ```exp``` directory as follows:
 
 Example statistics for star queries, star/chain queries and starchain queries are
 present in the ```exp_star```, ```exp_star_starchain``` and ```exp_starchain```
-folders and are presented in the Jupyter notebook *Experimental study for other 
+folders and are presented in the Jupyter notebook *Experimental study for other
 types of queries*.

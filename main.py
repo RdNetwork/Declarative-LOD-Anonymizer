@@ -4,6 +4,7 @@ import shutil
 import os
 import sys
 import csv
+import time
 from rdflib import Graph
 from policy import Policy
 from query import Query
@@ -98,11 +99,7 @@ def main():
 
     for _ in range(0, NB_EXPERIMENTS):
         # Cleanup
-        if not (STAT or TEST or STAT_HISTO_P or STAT_HISTO_U):
-            print "Cleaning previous outputs..."
-            shutil.rmtree('./out')
-            os.makedirs('./out')
-        else:
+        if (STAT or TEST or STAT_HISTO_P or STAT_HISTO_U):
             block_print()
 
         if DEMO:
@@ -243,14 +240,15 @@ def main():
 
                 # Perform anonymization
                 print "Anonymizing graph..."
-                g.serialize(destination='./out/output_anonymized_orig.ttl', format='trig')
+                g.serialize(destination='./out/output_anonymized_orig_'+time.strftime("%Y%m%d-%H%M%S")+'.ttl', 
+                            format='trig')
                 print "\tOperation " + str(choice) + " launched..."
                 seq = ops[int(choice)-1]
                 seq_step = 0
                 for o in seq:
                     seq_step += 1
                     o.delete(g, custom_prefixes())
-                    g.serialize(destination='./out/output_anonymized_step'+str(seq_step)+'.ttl', format='trig')
+                    g.serialize(destination='./out/output_anonymized_step'+str(seq_step)+'_'+time.strftime("%Y%m%d-%H%M%S")+'.ttl',                         format='trig')
                 print "\tLength after deletion: " + str(len(g)) + " triples"
         else:
             if STAT or STAT_HISTO_P or STAT_HISTO_U:
