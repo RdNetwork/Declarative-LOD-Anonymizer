@@ -3,8 +3,7 @@
 This is a draft of a research project aiming at designing theoretical and
 concrete tools to anonymize Linked Open Data graphs, notably RDF triple stores.
 The article describing the foundations behind this work and the goal of this
-implementation was [submitted to the ESWC2018 conference](https://2018.eswc-conferences.org/paper_12/),
-its acceptation is pending.
+implementation was submitted to the ISWC2018 conference, its acceptation is pending.
 
 This program currently works by using a previously generated query workload and
 picking a fixed number random queries in this workload to affect them in either
