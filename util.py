@@ -31,6 +31,12 @@ def decompose_triple(t):
 
     return (s,p,o)
 
+def replace_blank(t, ind):
+    """Replace one element of an RDF triple string by a blank node"""
+    t_tab = t.split(" ")
+    t_tab[ind] = ("[]")
+    return " ".join(t_tab)
+    
 def average_wl_size(workload):
     """Compute (integer) average size (in triples) of a query workload"""
     return int(sum(len(query.where) for query in workload) / float(len(workload)))

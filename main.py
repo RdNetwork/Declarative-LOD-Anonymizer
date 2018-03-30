@@ -215,7 +215,17 @@ def main():
         # Run algorithm
         print "Computing candidate operations..."
         counters = [0, 0]
-        ops = find_candidate_general(p_pol, u_pol, counters)
+        old_ops = find_candidate_general(p_pol, u_pol, counters)
+        ops = set()
+        for seq in old_ops:
+            sub_ops = set()
+            for o_i in seq:
+                sub_ops.add(o_i)
+            sub_ops = frozenset(sub_ops)
+            if sub_ops not in ops:
+                ops.add(sub_ops)
+
+
         # Overlapping measures
         print str(counters[0]) + " triples overlapping out of " + str(counters[1]) + " privacy triples"
         measure = '{:.3%}'.format(float(counters[0]) / float(counters[1]))
@@ -231,8 +241,9 @@ def main():
 
             print str(len(ops)) + " possible anonymization sequences found."
             print "Choose the sequence to be applied:"
-            for i in range(0, len(ops)):
-                print "\t" + str(i+1) + ": " + str(ops[i])
+            i = 0
+            for o in ops:
+                print "\t" + str(i+1) + ": " + str(o)
             if STAT or STAT_HISTO_P or STAT_HISTO_U:
                 stats.append((measure, len(ops), False, p_size, u_size))
             else:
@@ -247,7 +258,7 @@ def main():
                 seq_step = 0
                 for o in seq:
                     seq_step += 1
-                    o.delete(g, custom_prefixes())
+                    o.update(g, custom_prefixes())
                     g.serialize(destination='./out/output_anonymized_step'+str(seq_step)+'_'+time.strftime("%Y%m%d-%H%M%S")+'.ttl',                         format='trig')
                 print "\tLength after deletion: " + str(len(g)) + " triples"
         else:

@@ -2,7 +2,7 @@
 from operation import Operation
 from policy import Policy
 from unification import unify,var
-from util import decompose_triple
+from util import decompose_triple, replace_blank
 
 def find_candidate_unitaryP(privacy_pol, utility_pol, counters):
     """
@@ -28,7 +28,28 @@ def find_candidate_unitaryP(privacy_pol, utility_pol, counters):
                         counters[0] += 1
                     flag = False
         if flag:
-            ops.append(Operation([c], privacy_pol.queries[0].where))
+            # Deletion operation
+            ops.append(Operation([c], None, privacy_pol.queries[0].where))
+
+            # Update operation #1
+            for c_1 in privacy_pol.queries[0].where:
+                (s_1, p_1, o_1) = decompose_triple(c_1)
+                if ((s_1, p_1, o_1) == (s_1, p_1, s) or
+                   ((s_1, p_1, o_1) == (s, p_1, o_1) and (not unify((s, p, o), (s, p_1, o_1)))) or
+                   ('?'+str(s)) in privacy_pol.queries[0].select):
+                    c_blank = replace_blank(c, 0)
+                    ops.append(Operation([c], [c_blank], privacy_pol.queries[0].where))
+                    break
+
+            # Update operation #2
+            for c_2 in privacy_pol.queries[0].where:
+                (s_2, p_2, o_2) = decompose_triple(c_2)
+                if ((s_2, p_2, o_2) == (o, p_2, s_2) or
+                 ((s_2, p_2, o_2) == (s_2, p_2, o) and (not unify((s, p, o), (s_2, p_2, o)))) or
+                   ('?'+str(s)) in privacy_pol.queries[0].select):
+                    c_blank = replace_blank(c, 2)
+                    ops.append(Operation([c], [c_blank], privacy_pol.queries[0].where))       
+                    break         
     return ops
 
 def find_candidate_general(privacy_pol, utility_pol, counters):

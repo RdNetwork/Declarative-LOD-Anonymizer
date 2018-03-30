@@ -1,7 +1,7 @@
 import xml.etree.ElementTree
 from prefix import Prefix
 
-class Query:
+class Query(object):
     """SPARQL query handling methods"""
 
     def __init__(self, select, where, filt=None):
