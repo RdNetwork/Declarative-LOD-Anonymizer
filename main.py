@@ -79,7 +79,7 @@ def main():
     if DEMO:
         workload = Query.parse_gmark_queries("./conf/workloads/demo.xml")
     else:
-        workload = Query.parse_gmark_queries("./conf/workloads/starsnow-workload.xml")
+        workload = Query.parse_gmark_queries("./conf/workloads/star-starchain-workload.xml")
 
     avg = average_wl_size(workload) * 3
 
@@ -215,15 +215,16 @@ def main():
         # Run algorithm
         print "Computing candidate operations..."
         counters = [0, 0]
-        old_ops = find_candidate_general(p_pol, u_pol, counters)
-        ops = set()
-        for seq in old_ops:
-            sub_ops = set()
-            for o_i in seq:
-                sub_ops.add(o_i)
-            sub_ops = frozenset(sub_ops)
-            if sub_ops not in ops:
-                ops.add(sub_ops)
+        ops = find_candidate_general(p_pol, u_pol, counters)
+        # old_ops = find_candidate_general(p_pol, u_pol, counters)
+        # ops = set()
+        # for seq in old_ops:
+        #     sub_ops = set()
+        #     for o_i in seq:
+        #         sub_ops.add(o_i)
+        #     sub_ops = frozenset(sub_ops)
+        #     if sub_ops not in ops:
+        #         ops.add(sub_ops)
 
 
         # Overlapping measures
@@ -242,8 +243,9 @@ def main():
             print str(len(ops)) + " possible anonymization sequences found."
             print "Choose the sequence to be applied:"
             i = 0
-            for o in ops:
-                print "\t" + str(i+1) + ": " + str(o)
+            for i in (range(len(ops))):
+                print "\t" + str(i+1) + ": " + str(ops[i])
+                i = i+1
             if STAT or STAT_HISTO_P or STAT_HISTO_U:
                 stats.append((measure, len(ops), False, p_size, u_size))
             else:

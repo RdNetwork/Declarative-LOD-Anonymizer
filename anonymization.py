@@ -66,8 +66,11 @@ def find_candidate_general(privacy_pol, utility_pol, counters):
         ind += 1
         ops_i = find_candidate_unitaryP(Policy([q], "P"), utility_pol, counters)
         if not ops_i:
+            # If one policy query returned no results, then this privacy policy
+            # cannot be satisfied => return empty
             return []
         else:
+            
             new_op_seqs = []
             if not ops:
                 for new_op in ops_i:
@@ -75,8 +78,10 @@ def find_candidate_general(privacy_pol, utility_pol, counters):
             else:
                 for old_op_seq in ops:
                     for new_op in ops_i:
+                        backup_old_op_seq = list(old_op_seq)
                         old_op_seq.append(new_op)
                         new_op_seqs.append(old_op_seq)
+                        old_op_seq = list(backup_old_op_seq)
                 ops = new_op_seqs
 
     return ops
