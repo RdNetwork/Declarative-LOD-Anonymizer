@@ -10,20 +10,6 @@
   </head>
   <bodies>
     <body>
-      <conjunct src="?c" trg="tcl:Journey">
-      <disj>
-        <concat>
-          <symbol>rdf:type</symbol>
-        </concat>
-      </disj>
-      </conjunct>
-      <conjunct src="?c" trg="?u">
-      <disj>
-        <concat>
-          <symbol>tcl:user</symbol>
-        </concat>
-      </disj>
-      </conjunct>
       <conjunct src="?u" trg="tcl:User">
       <disj>
         <concat>
