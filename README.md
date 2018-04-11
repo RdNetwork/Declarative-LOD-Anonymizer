@@ -20,6 +20,7 @@ sequences are found, an output is created with the supposedly anonymized graph.
 - ```*.sh``` files: statistics generators (Bash scripts).
   - ```run_stats.sh``` runs stats generation for the standard case (both policies of cardinality 3).
   - ```run_stats_all.sh``` extends stats generation for policy cardinalities between 1 and 4)
+  - ```runtime_test.sh``` runs 20 iterations of the program with policies of cardinalty 10, and measure their runtime.
 - ```plot.r```: R script used to plot graphs used in the article and the added notebook.
 - ```conf``` directory: directory for configuration and input files (query workloads, test graphs, gMark configuration files).
 - ```exp``` directory (empty at first): output directory for statistics tables and figures.
@@ -139,5 +140,7 @@ This script will generate five figures in the ```exp``` directory as follows:
 
 Example statistics for star queries, star/chain queries and starchain queries are
 present in the ```exp_star```, ```exp_star_starchain``` and ```exp_starchain```
-folders and are presented in the Jupyter notebook *Experimental study for other
+subfolders of the ```exp_update``` and are presented in the Jupyter notebook *Experimental study for other
 types of queries*.
+Experiments for a simpler code prototype (using deletions only) are also featured
+in the notebook (see folder ```exp_delete``` and its subfolders for data and graphs).
