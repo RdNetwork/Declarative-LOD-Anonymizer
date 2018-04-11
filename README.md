@@ -48,7 +48,7 @@ is used.
 ### Example graph configuration
 
 For indication only, the configuration file describing the graph schema used
-for the query worklaod generation is provied, in the file ```/conf/test.xml```.
+for the query workload generation is provied, in the file ```/conf/test.xml```.
 You can reuse this file as explained in the gMark documentation to generate
 your own graph and workload. This file describes a graph schema modeling a
 transportation network and its users (persons, travels, lines, subscriptions),
