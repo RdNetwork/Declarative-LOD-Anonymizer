@@ -22,7 +22,7 @@ If you use this projet, please cite:
 @inproceedings{DBRT2018,
   author    = {R{\'{e}my Delanaux and
                Angela Bonifati and
-               Marie{-} Christine Rousset and
+               Marie{-}Christine Rousset and
                Romuald Thion},
   title     = {Query-based Linked Data Anonymization},
   booktitle = {International Semantic Web Conference {(1)}},
