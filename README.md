@@ -15,6 +15,25 @@ The code then computes possible sequences of operations to perform on the graph
 to anonymize it based on this set of contraints. If such sequences are found, an
 output is created with the supposedly anonymized graph.
 
+## Use this work
+
+If you use this projet, please cite:
+```
+@inproceedings{DBRT2018,
+  author    = {R{\'{e}my Delanaux and
+               Angela Bonifati and
+               Marie{-} Christine Rousset and
+               Romuald Thion},
+  title     = {Query-based Linked Data Anonymization},
+  booktitle = {International Semantic Web Conference {(1)}},
+  series    = {Lecture Notes in Computer Science},
+  publisher = {Springer},
+  year      = {2018}
+}
+```
+
+This will be updated once the ISWC2018 detailed proceedings are published.
+
 ## Project architecture
 
 - ```*.py``` files: framework implementation in Python.
