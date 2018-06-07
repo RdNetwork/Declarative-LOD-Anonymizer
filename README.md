@@ -1,17 +1,19 @@
 # Declarative LOD Anonymizer
 
-This is a draft of a research project aiming at designing theoretical and
+This is a the implementation of a research project aiming at designing theoretical and
 concrete tools to anonymize Linked Open Data graphs, notably RDF triple stores.
 The article describing the foundations behind this work and the goal of this
-implementation was submitted to the ISWC2018 conference, its acceptation is pending.
+implementation was accepted to the ISWC2018 conference. It will be presented in
+October 2018 at the conference (in Monterey, CA, USA).
 
 This program currently works by using a previously generated query workload and
 picking a fixed number random queries in this workload to affect them in either
-a privacy policy or an utility policy. Privacy queries must return no results in
-an "anonymized graph", while utility queries must return the same results as on
-the original graph. The code then computes possible sequences of operations to
-perform on the graph to anonymize it based on this set of contraints. If such
-sequences are found, an output is created with the supposedly anonymized graph.
+a privacy policy or an utility policy. Privacy queries must return either no
+results or results featuring blanks in an "anonymized graph", while utility queries
+must return the same results as on the original graph.
+The code then computes possible sequences of operations to perform on the graph
+to anonymize it based on this set of contraints. If such sequences are found, an
+output is created with the supposedly anonymized graph.
 
 ## Project architecture
 
@@ -87,7 +89,7 @@ outputs. RDF stores files can get pretty big, so be careful!
 
 ### Running the tests
 
-To reproduce the tests presented in the ESWC submission, you can run the
+To reproduce the tests presented in the ISWC submission, you can run the
 statistics script:
 
 ```bash
