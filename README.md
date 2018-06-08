@@ -11,9 +11,9 @@ picking a fixed number random queries in this workload to affect them in either
 a privacy policy or an utility policy. Privacy queries must return either no
 results or results featuring blanks in an "anonymized graph", while utility queries
 must return the same results as on the original graph.
-The code then computes possible sequences of operations to perform on the graph
-to anonymize it based on this set of contraints. If such sequences are found, an
-output is created with the supposedly anonymized graph.
+The code then computes possible sequences of operations to be applied on the graph
+to anonymize it, based on this set of contraints. If such sequences are found, an
+output is created with the 'anonymized' graph.
 
 ## Use this work
 
@@ -46,11 +46,11 @@ This will be updated once the ISWC2018 detailed proceedings are published.
 - ```conf``` directory: directory for configuration and input files (query workloads, test graphs, gMark configuration files).
 - ```exp``` directory (empty at first): output directory for statistics tables and figures.
 - ```out``` directory (empty at first): output directory for anonymized graphs.
-- *Experimental study for other types of queries* : Jupyter notebook describing additional experiments not detailed in the ESWC submission.
+- *Experimental study for other types of queries* : Jupyter notebook describing additional experiments not detailed in the ISWC submission.
 
 ## Setup
 
-To reproduce the various experiments and examples from the article, you can
+To reproduce the various experiments and examples from the ISWC submission, you can
 execute the code yourself on our example graph schema.
 
 ### Prerequisites
@@ -85,7 +85,7 @@ To run the program and anonymize a graph, just run it as follows:
 python main.py
 ```
 
-The graph anonymization feature is still being worked on. Right now, it uses
+**The graph anonymization feature is still a work in progress**. Right now, it uses
 a Turtle-formatted RDF graph, named ```graph.ttl``` in the ```/conf/graphs```
 directory.
 
