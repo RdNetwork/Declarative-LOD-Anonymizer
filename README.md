@@ -20,7 +20,7 @@ output is created with the 'anonymized' graph.
 If you use this projet, please cite:
 ```
 @inproceedings{DBRT2018,
-  author    = {R{\'{e}my Delanaux and
+  author    = {R{\'{e}}my Delanaux and
                Angela Bonifati and
                Marie{-}Christine Rousset and
                Romuald Thion},
