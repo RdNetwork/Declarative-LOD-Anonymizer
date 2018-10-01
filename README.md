@@ -18,7 +18,8 @@ output is created with the 'anonymized' graph.
 ## Use this work
 
 If you use this projet, please cite:
-```
+
+```bibtex
 @inproceedings{DBRT2018,
   author    = {R{\'{e}}my Delanaux and
                Angela Bonifati and
@@ -56,9 +57,12 @@ execute the code yourself on our example graph schema.
 ### Prerequisites
 
 This project uses Python and should work on any version of Python 3 and any
-version of Python starting from Python 2.7. You must install the [rdflib](https://github.com/RDFLib/rdflib)
-and [unification](https://pypi.python.org/pypi/unification/0.2.2) Python libraries
-to run this program.
+version of Python starting from Python 2.7. You must install the following Python
+libraries to be able to run this program:
+*[rdflib](https://github.com/RDFLib/rdflib)
+*[unification](https://pypi.python.org/pypi/unification/0.2.2)
+*[yapps](https://github.com/smurfix/yapps)
+*[fyzz](https://pypi.org/project/fyzz/)
 
 The query workload is created using [gMark](https://github.com/graphMark/gmark),
 which uses an XML configuration file to generate graphs and queries. You can follow
@@ -95,6 +99,20 @@ privacy queries and 2 utility queries used the article's examples:
 ```bash
 python main.py -d
 ```
+
+The demo mode also accepts policies written as text files. Policies have to be stored
+in the ```/conf/workload/policies``` folder and named adequatly:
+*Privacy policies: ```p*.rq``` where * ranges from 1 to the number of privacy queries + 1
+*Utility policies: ```u*.rq``` where * ranges from 1 to the number of privacy queries + 1
+
+To run this "textual demo mode", for example with policies featuring queries, run the following:
+
+```bash
+python main.py 2 2 -d
+```
+
+Four example policy files are provided, using a similar example to the standard
+demo mode's one.
 
 The standard execution will compute possible anonymization sequences, each one
 indexed by a number. After choosing a sequence, its operations (here only deletions)

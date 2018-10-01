@@ -1,0 +1,9 @@
+PREFIX geo: <https://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX tcl: <http://example.com>
+SELECT ?u ?lat ?long
+WHERE {
+	?c	a	tcl:Journey.
+	?c	tcl:user	?u.				
+	?c	geo:latitude ?lat.
+	?c	geo:longitude	?long.
+}

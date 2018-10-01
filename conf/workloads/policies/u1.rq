@@ -1,0 +1,7 @@
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX tcl: <http://example.com>
+SELECT ?u ?age
+WHERE {
+    ?u	a	tcl:User.
+    ?u	foaf:age	?age.
+}

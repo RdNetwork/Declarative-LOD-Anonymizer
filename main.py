@@ -36,12 +36,18 @@ def custom_prefixes():
 
 def main():
     """Main execution function."""
-    STAT = False
-    TEST = False
-    DEMO = False
-    STAT_HISTO_P = False
-    STAT_HISTO_U = False
+    STAT = False            #Stats mode: looping 7000 executions
+    TEST = False            #Test mode: no anonymiation after algorithms execution
+    DEMO = False            #Demo mode: fixed gmark policies, simple example
+    DEMO_TXT = False        #Textual mode: import queries from text files rather than gmark output
+    STAT_HISTO_P = False    #Generates stats with fixed privacy size
+    STAT_HISTO_U = False    #Generates stats with fixed utility size
 
+    if "-dt" in sys.argv:
+        print "Running in textual demo mode: reading policies textfiles..."
+        DEMO_TXT = True
+        p_pol_size = int(sys.argv[1])
+        u_pol_size = int(sys.argv[2])
     if "-d" in sys.argv:
         print "Running in demo mode: simple fixed policies used."
         DEMO = True
@@ -78,6 +84,8 @@ def main():
     print "Fetching query workload..."
     if DEMO:
         workload = Query.parse_gmark_queries("./conf/workloads/demo.xml")
+    elif DEMO_TXT:
+        workload = Query.parse_txt_queries(p_pol_size, u_pol_size)
     else:
         workload = Query.parse_gmark_queries("./conf/workloads/star-starchain-workload.xml")
 
@@ -102,7 +110,7 @@ def main():
         if (STAT or TEST or STAT_HISTO_P or STAT_HISTO_U):
             block_print()
 
-        if DEMO:
+        if DEMO or DEMO_TXT:
             p_pol = Policy([workload[0], workload[1]], "P")
             p_pol_nums = [0, 1]
             u_pol = Policy([workload[2], workload[3]], "U")
@@ -216,6 +224,7 @@ def main():
         print "Computing candidate operations..."
         counters = [0, 0]
         ops = find_candidate_general(p_pol, u_pol, counters)
+        print str(len(ops)) + ' operations found.'
         # old_ops = find_candidate_general(p_pol, u_pol, counters)
         # ops = set()
         # for seq in old_ops:
