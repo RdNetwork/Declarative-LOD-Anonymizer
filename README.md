@@ -20,14 +20,16 @@ output is created with the 'anonymized' graph.
 If you use this projet, please cite:
 
 ```bibtex
-@inproceedings{DBRT2018,
-  author    = {R{\'{e}}my Delanaux and
+@inproceedings{DBLP:conf/semweb/DelanauxBRT18,
+  author    = {Remy Delanaux and
                Angela Bonifati and
                Marie{-}Christine Rousset and
                Romuald Thion},
-  title     = {Query-based Linked Data Anonymization},
+  title     = {Query-Based Linked Data Anonymization},
   booktitle = {International Semantic Web Conference {(1)}},
   series    = {Lecture Notes in Computer Science},
+  volume    = {11136},
+  pages     = {530--546},
   publisher = {Springer},
   year      = {2018}
 }
