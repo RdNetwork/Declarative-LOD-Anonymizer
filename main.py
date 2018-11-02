@@ -234,8 +234,15 @@ def main():
         #     sub_ops = frozenset(sub_ops)
         #     if sub_ops not in ops:
         #         ops.add(sub_ops)
-
-
+        
+        # Writing operations to result files
+        op_id = 0
+        for o in ops:
+            with open('./out/op'+str(op_id)+'.txt', 'w+') as outfile:
+                outfile.write(str(ops[op_id]))
+                outfile.close()
+                op_id += 1
+        
         # Overlapping measures
         print str(counters[0]) + " triples overlapping out of " + str(counters[1]) + " privacy triples"
         measure = '{:.3%}'.format(float(counters[0]) / float(counters[1]))
