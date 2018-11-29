@@ -90,55 +90,70 @@ def find_candidate_general(privacy_pol, utility_pol, counters):
 def find_safe_ops(privacy_pol):
     """Compute the set of operations to create a safe anonymization."""
     ops = []
-    ind = 0
     for q in privacy_pol.queries:
         print "\tPrivacy policy query found..."
-        ind += 1
         ind_l = {}
         ind_v = {}
         for c in q.where:
             b_index = 0
             (s,p,o) = decompose_triple(c)
             if (type(s) == variable.Var) or (':' in s):
-                if not ind_v[s]:
+                if (type(s) == variable.Var):
+                    s = str(s)[1:]
+                if not s in ind_v:
                     ind_v[s] = set()
-                ind_v[s].add((s,p,o))
+                ind_v[s].add(c)
             if (type(p) == variable.Var) or (':' in p):
-                if not ind_v[p]:
+                if (type(p) == variable.Var):
+                    p = str(p)[1:]
+                if not p in ind_v:
                     ind_v[p] = set()
                 ind_v[p].add(c)
             if (type(o) == variable.Var) or (':' in o):
-                if not ind_v[o]:
+                if (type(o) == variable.Var):
+                    o = str(o)[1:]
+                if not o in ind_v:
                     ind_v[o] = set()
                 ind_v[o].add(c)
             else:
-                if not ind_l[o]:
+                if not o in ind_l:
                     ind_l[o] = set()
                 ind_l[o].add(c)
-            g_prime = q.where
-            v_crit = set()
-            for v,g in ind_v.iteritems():
-                if len(g) > 1:
-                    v_crit.add(v)
-            for v in v_crit:
-                g_prime.replace(v,"_:b"+str(b_index))
-                b_index += 1
-            if not g_prime == q.where:
-                if len(q.select) == 0:
-                    # case of a boolean query: pick the first triple and delete it
-                    ops.append(Operation([c], None, q.where))
-                else:
-                    ops.append(Operation(q.where, g_prime, q.where))
-            g_prime = []
-            l_crit = set()
-            for l,g in ind_l.iteritems():
-                if len(g) > 1:
-                    l_crit.add(l)    
-            for l in l_crit:
-                for t in ind_l[l]:
-                    (s_l,p_l,_) = decompose_triple(t)
-                    if s_l not in v_crit and p_l not in v_crit:
-                        g_prime.append(t)
-            if g_prime:
-                ops.append(Operation(g_prime, None, g_prime))
+        # print("Subgraphs for each variable and IRI:")
+        # print(ind_v)
+        # print("Subgraphs for each literal:")
+        # print(ind_l)
+        v_crit = set([v[1:] for v in q.select])
+        for v,g in ind_v.iteritems():
+            if len(g) > 1:
+                v_crit.add(v)
+        print("Critical terms: " + str(v_crit))
+        g_prime = q.where
+        for v in v_crit:
+            print(v)
+            v = '?' + v
+            g_prime_post = []
+            for t in g_prime:
+                t_int = t.replace(v+" ","_:b"+str(b_index)+" ")
+                g_prime_post.append(t_int.replace(" "+v," _:b"+str(b_index)))
+            b_index += 1
+            g_prime = g_prime_post
+        if not g_prime == q.where:
+            if len(q.select) == 0:
+                # case of a boolean query: pick the first triple and delete it
+                ops.append(Operation([c], None, q.where))
+            else:
+                ops.append(Operation(q.where, g_prime, q.where))
+        g_prime = []
+        l_crit = set()
+        for l,g in ind_l.iteritems():
+            if len(g) > 1:
+                l_crit.add(l)    
+        for l in l_crit:
+            for t in ind_l[l]:
+                (s_l,p_l,_) = decompose_triple(t)
+                if s_l not in v_crit and p_l not in v_crit:
+                    g_prime.append(t)
+        if g_prime:
+            ops.append(Operation(g_prime, None, g_prime))
     return ops

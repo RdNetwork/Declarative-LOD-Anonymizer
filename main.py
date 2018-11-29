@@ -229,6 +229,7 @@ def main():
         if SAFETY: 
             print("SAFETY")
             o = find_safe_ops(p_pol)
+            print(o)
             ops = [o]
         else:
             counters = [0, 0]
@@ -252,10 +253,11 @@ def main():
                 outfile.close()
                 op_id += 1
         
-        # Overlapping measures
-        print str(counters[0]) + " triples overlapping out of " + str(counters[1]) + " privacy triples"
-        measure = '{:.3%}'.format(float(counters[0]) / float(counters[1]))
-        print "Overlapping value: " + str(measure)
+        if not SAFETY:
+            # Overlapping measures
+            print str(counters[0]) + " triples overlapping out of " + str(counters[1]) + " privacy triples"
+            measure = '{:.3%}'.format(float(counters[0]) / float(counters[1]))
+            print "Overlapping value: " + str(measure)
 
         if ops and not TEST:    
             # Import graph
