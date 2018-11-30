@@ -58,8 +58,8 @@ def main():
         p_pol_size = 2
         u_pol_size = 2
     else:
+        p_pol_size = int(sys.argv[1])
         if not SAFETY:
-            p_pol_size = int(sys.argv[1])
             u_pol_size = int(sys.argv[2])
         if "-s" in sys.argv[3:]:
             print "Running in stats mode: 7000 executions looped."
