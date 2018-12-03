@@ -107,7 +107,7 @@ def main():
 
     for _ in range(0, NB_EXPERIMENTS):
         # Cleanup
-        if (STAT or TEST or STAT_HISTO_P or STAT_HISTO_U):
+        if (STAT or STAT_HISTO_P or STAT_HISTO_U):
             block_print()
 
         if DEMO or DEMO_TXT:
