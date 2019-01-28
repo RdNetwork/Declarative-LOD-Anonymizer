@@ -22,7 +22,7 @@ def custom_prefixes():
     p.append(Prefix("owl", "http://www.w3.org/2002/07/owl#"))
     p.append(Prefix("xsd", "http://www.w3.org/2001/XMLSchema#"))
     p.append(Prefix("dc", "http://purl.org/dc/elements/1.1/"))
-    p.append(Prefix("dcterms", "http://purl.org/dc/terms/"))
+    p.append(Prefix("dcterm", "http://purl.org/dc/terms/"))
     p.append(Prefix("foaf", "http://xmlns.com/foaf/0.1/"))
     p.append(Prefix("geo", "http://www.w3.org/2003/01/geo/wgs84_pos#"))
     p.append(Prefix("datex", "http://vocab.datex.org/terms#"))
@@ -50,8 +50,6 @@ def main():
     if "-dt" in sys.argv:
         print "Running in textual demo mode: reading policies textfiles..."
         DEMO_TXT = True
-        p_pol_size = int(sys.argv[1])
-        u_pol_size = int(sys.argv[2])
     if "-d" in sys.argv:
         print "Running in demo mode: simple fixed policies used."
         DEMO = True
@@ -112,14 +110,18 @@ def main():
 
     for _ in range(0, NB_EXPERIMENTS):
         # Cleanup
-        if (STAT or TEST or STAT_HISTO_P or STAT_HISTO_U):
+        if (STAT or STAT_HISTO_P or STAT_HISTO_U):
             block_print()
 
         if DEMO or DEMO_TXT:
-            p_pol = Policy([workload[0], workload[1]], "P")
-            p_pol_nums = [0, 1]
-            u_pol = Policy([workload[2], workload[3]], "U")
-            u_pol_nums = [2, 3]
+            p_queries = []
+            u_queries = []
+            for i in range(0,p_pol_size):
+                p_queries.append(workload[i])
+            for i in range(p_pol_size,u_pol_size+p_pol_size):
+                u_queries.append(workload[i])
+            p_pol = Policy(p_queries, "P")
+            u_pol = Policy(u_queries, "U")
         else:
             # Creating random seed...
             seed = random.randrange(sys.maxsize)
@@ -213,13 +215,15 @@ def main():
                     u_pol_nums.append(q_num)
 
 
-        print "\t\tChosen privacy queries: " + str(p_pol_nums)
+        if not DEMO and not DEMO_TXT:
+            print "\t\tChosen privacy queries: " + str(p_pol_nums)
         p_size = 0
         for i in range(0, p_pol_size):
             p_size += len(p_pol.queries[i].where)
             print "\t\t" + str(p_pol.queries[i])
 
-        print "\t\tChosen utility queries: " + str(u_pol_nums)
+        if not DEMO and not DEMO_TXT:
+            print "\t\tChosen utility queries: " + str(u_pol_nums)
         u_size = 0
         for i in range(0, u_pol_size):
             u_size += len(u_pol.queries[i].where)
