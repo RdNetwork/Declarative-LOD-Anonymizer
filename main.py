@@ -8,7 +8,7 @@ import time
 from rdflib import Graph
 from policy import Policy
 from query import Query
-from anonymization import find_candidate_general, find_safe_ops
+from anonymization import find_candidate_general
 from prefix import Prefix
 from util import block_print, enable_print, average_wl_size, empty_folder
 
@@ -42,10 +42,6 @@ def main():
     DEMO_TXT = False        #Textual mode: import queries from text files rather than gmark output
     STAT_HISTO_P = False    #Generates stats with fixed privacy size
     STAT_HISTO_U = False    #Generates stats with fixed utility size
-    SAFETY = False          #Generates operations preventing safety rather than candidates for privacy
-
-    if "-safe" in sys.argv:
-        SAFETY = True
 
     if "-dt" in sys.argv:
         print "Running in textual demo mode: reading policies textfiles..."
@@ -57,8 +53,7 @@ def main():
         u_pol_size = 2
     else:
         p_pol_size = int(sys.argv[1])
-        if not SAFETY:
-            u_pol_size = int(sys.argv[2])
+        u_pol_size = int(sys.argv[2])
         if "-s" in sys.argv[3:]:
             print "Running in stats mode: 7000 executions looped."
             STAT = True
@@ -231,24 +226,18 @@ def main():
 
         # Run algorithm
         print "Computing candidate operations..."
-        if SAFETY: 
-            print("SAFETY")
-            o = find_safe_ops(p_pol)
-            print(o)
-            ops = [o]
-        else:
-            counters = [0, 0]
-            ops = find_candidate_general(p_pol, u_pol, counters)
-            print str(len(ops)) + ' operations found.'
-            # old_ops = find_candidate_general(p_pol, u_pol, counters)
-            # ops = set()
-            # for seq in old_ops:
-            #     sub_ops = set()
-            #     for o_i in seq:
-            #         sub_ops.add(o_i)
-            #     sub_ops = frozenset(sub_ops)
-            #     if sub_ops not in ops:
-            #         ops.add(sub_ops)
+        counters = [0, 0]
+        ops = find_candidate_general(p_pol, u_pol, counters)
+        print str(len(ops)) + ' operations found.'
+        # old_ops = find_candidate_general(p_pol, u_pol, counters)
+        # ops = set()
+        # for seq in old_ops:
+        #     sub_ops = set()
+        #     for o_i in seq:
+        #         sub_ops.add(o_i)
+        #     sub_ops = frozenset(sub_ops)
+        #     if sub_ops not in ops:
+        #         ops.add(sub_ops)
         
         # Writing operations to result files
         op_id = 0
@@ -259,11 +248,10 @@ def main():
                 outfile.close()
                 op_id += 1
         
-        if not SAFETY:
-            # Overlapping measures
-            print str(counters[0]) + " triples overlapping out of " + str(counters[1]) + " privacy triples"
-            measure = '{:.3%}'.format(float(counters[0]) / float(counters[1]))
-            print "Overlapping value: " + str(measure)
+        # Overlapping measures
+        print str(counters[0]) + " triples overlapping out of " + str(counters[1]) + " privacy triples"
+        measure = '{:.3%}'.format(float(counters[0]) / float(counters[1]))
+        print "Overlapping value: " + str(measure)
 
         if ops and not TEST:    
             # Import graph
