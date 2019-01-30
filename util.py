@@ -1,6 +1,7 @@
 """Utility methods."""
 import sys
 import os
+import shutil
 from unification import var
 
 def block_print():
@@ -40,3 +41,14 @@ def replace_blank(t, ind):
 def average_wl_size(workload):
     """Compute (integer) average size (in triples) of a query workload"""
     return int(sum(len(query.where) for query in workload) / float(len(workload)))
+
+def empty_folder(folder):
+    """Empty a given folder. From https://stackoverflow.com/a/185941"""
+    for the_file in os.listdir(folder):
+        file_path = os.path.join(folder, the_file)
+        try:
+            if os.path.isfile(file_path):
+                os.unlink(file_path)
+            #elif os.path.isdir(file_path): shutil.rmtree(file_path)
+        except Exception as e:
+            print(e)

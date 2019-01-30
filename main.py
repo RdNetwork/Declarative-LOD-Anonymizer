@@ -10,7 +10,7 @@ from policy import Policy
 from query import Query
 from anonymization import find_candidate_general, find_safe_ops
 from prefix import Prefix
-from util import block_print, enable_print, average_wl_size
+from util import block_print, enable_print, average_wl_size, empty_folder
 
 GMARK_QUERIES = 500
 
@@ -252,6 +252,7 @@ def main():
         
         # Writing operations to result files
         op_id = 0
+        empty_folder('./out/')
         for o in ops:
             with open('./out/op'+str(op_id)+'.txt', 'w+') as outfile:
                 outfile.write(str(ops[op_id]))
