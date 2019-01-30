@@ -61,6 +61,7 @@ execute the code yourself on our example graph schema.
 This project uses Python and should work on any version of Python 3 and any
 version of Python starting from Python 2.7. You must install the following Python
 libraries to be able to run this program:
+
 *[rdflib](https://github.com/RDFLib/rdflib)
 *[unification](https://pypi.python.org/pypi/unification/0.2.2)
 *[yapps](https://github.com/smurfix/yapps)
@@ -104,13 +105,14 @@ python main.py -d
 
 The demo mode also accepts policies written as text files. Policies have to be stored
 in the ```/conf/workload/policies``` folder and named adequatly:
+
 *Privacy policies: ```p*.rq``` where * ranges from 1 to the number of privacy queries + 1
 *Utility policies: ```u*.rq``` where * ranges from 1 to the number of privacy queries + 1
 
 To run this "textual demo mode", for example with policies featuring queries, run the following:
 
 ```bash
-python main.py 2 2 -d
+python main.py 2 2 -dt
 ```
 
 Four example policy files are provided, using a similar example to the standard

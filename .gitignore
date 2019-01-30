@@ -1,5 +1,7 @@
 /out/
 /exp/
+/conf/workloads/policies/*/
+
 *.pyc
 
 ### STANDARD PYTHON GITIGNORE ###
