@@ -3,8 +3,8 @@
 This is a the implementation of a research project aiming at designing theoretical and
 concrete tools to anonymize Linked Open Data graphs, notably RDF triple stores.
 The article describing the foundations behind this work and the goal of this
-implementation was accepted to the ISWC2018 conference. It will be presented in
-October 2018 at the conference (in Monterey, CA, USA).
+implementation was presented at the [ISWC2018 conference](http://iswc2018.semanticweb.org/) 
+in Monterey, CA (USA).
 
 This program currently works by using a previously generated query workload and
 picking a fixed number random queries in this workload to affect them in either
@@ -17,7 +17,7 @@ output is created with the 'anonymized' graph.
 
 ## Use this work
 
-If you use this projet, please cite:
+If you use this project, please cite the following:
 
 ```bibtex
 @inproceedings{DBLP:conf/semweb/DelanauxBRT18,
@@ -34,8 +34,6 @@ If you use this projet, please cite:
   year      = {2018}
 }
 ```
-
-This will be updated once the ISWC2018 detailed proceedings are published.
 
 ## Project architecture
 
